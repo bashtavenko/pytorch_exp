@@ -1,0 +1,6 @@
+torch
+absl-py
+glog
+
+matplotlib
+numpy
