@@ -1,6 +1,9 @@
+pillow
 torch
+torchvision
 absl-py
 glog
 
 matplotlib
 numpy
+pyqt6
