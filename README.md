@@ -1,4 +1,4 @@
-## Pytorch exploration on a local machine with GPU
+## Pytorch explorations and snippets on a local machine with GPU
 
 This mostly came
 from [Deep Learning with PyTorch, Second Edition](https://www.manning.com/books/deep-learning-with-pytorch-second-edition)

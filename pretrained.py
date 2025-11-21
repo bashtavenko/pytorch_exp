@@ -22,7 +22,8 @@ def main(argv):
     # plt.show()
 
     # Format to RESNET
-    preprocess = transforms.Compose([
+    # This is a function/callable object from Compose
+    preprocess_image = transforms.Compose([
         transforms.Resize(256),
         transforms.CenterCrop(224),
         transforms.ToTensor(),
@@ -31,8 +32,8 @@ def main(argv):
             std=[0.229, 0.224, 0.225]
         )])
 
-    preprocess = weights.transforms()
-    batch = preprocess(img).unsqueeze(0)  # shape: [1, 3, H, W]
+    preprocess_image = weights.transforms()
+    batch = preprocess_image(img).unsqueeze(0)  # shape: [1, 3, H, W]
 
     with torch.no_grad():
         logits = resnet(batch)

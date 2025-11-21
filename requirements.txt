@@ -3,6 +3,7 @@ torch
 torchvision
 absl-py
 glog
+imageio
 
 matplotlib
 numpy
