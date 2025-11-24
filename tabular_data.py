@@ -1,3 +1,7 @@
+"""
+Example of tabular data
+"""
+
 import numpy as np
 import torch
 
