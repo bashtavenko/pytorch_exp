@@ -6,7 +6,7 @@ import os
 
 def main(argv):
     del argv
-    img_arr = imageio.imread('testdata/silva.jpg')
+    img_arr = imageio.imread('../testdata/silva.jpg')
     print(img_arr.shape)  # Gets (1406, 1599, 3) H x W x C
 
     # Convert to (C, H, W)
@@ -18,7 +18,7 @@ def main(argv):
     img_t = img_t[:3]
 
     # Cat examples
-    data_dir = 'testdata/image-cats'
+    data_dir = '../testdata/image-cats'
     png_files = [f for f in os.listdir(data_dir) if f.endswith('.png')]
     batch = torch.zeros(len(png_files), 3, 256, 256, dtype=torch.uint8)
 

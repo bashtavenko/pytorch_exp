@@ -12,7 +12,7 @@ import csv
 
 def main(argv):
     del argv
-    wine_path = 'testdata/winequality-white.csv'
+    wine_path = '../testdata/winequality-white.csv'
     wine_numpy = np.loadtxt(wine_path, dtype=np.float32, delimiter=";",
                             skiprows=1)
     print(wine_numpy)  # data

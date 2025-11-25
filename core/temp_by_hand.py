@@ -82,7 +82,7 @@ def main(argv):
     plt.xlabel("Measurement")
     plt.ylabel("Temperature (°Celsius)")
     plt.plot(t_u.numpy(), t_c.numpy(), 'o')
-    plt.savefig("img/temp_data_plot.png", format="png")
+    plt.savefig("../img/temp_data_plot.png", format="png")
 
     # Smoke test
     w = torch.ones(())
@@ -131,19 +131,7 @@ def main(argv):
     plt.ylabel("Temperature (°Celsius)")
     plt.plot(t_u.numpy(), t_p.detach().numpy())
     plt.plot(t_u.numpy(), t_c.numpy(), 'o')
-    plt.savefig("img/final_plot.png", format="png")
-
-
-    # Explicitly zero the gradients before running the backward pass.
-    if params.grad is not None:
-        params.grad.zero_()
-
-    loss = loss_fn(model(t_u, *params), t_c)
-    loss.backward()
-
-    print(params.grad)
-
-
+    plt.savefig("../img/final_plot.png", format="png")
 
 
 if __name__ == '__main__':

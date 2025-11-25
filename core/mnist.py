@@ -32,7 +32,7 @@ def main(argv):
     del argv
     torch.manual_seed(4242)
     train_loader = torch.utils.data.DataLoader(
-        datasets.MNIST('datasets/mnist', train=True, download=True,
+        datasets.MNIST('../datasets/mnist', train=True, download=True,
                        transform=transforms.Compose([
                            transforms.ToTensor(),
                            transforms.Normalize((0.1307,), (0.3081,))

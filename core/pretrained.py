@@ -14,7 +14,7 @@ def main(argv):
     weights = models.ResNet101_Weights.IMAGENET1K_V1
     resnet = models.resnet101(weights=weights)
     resnet.eval()
-    img = Image.open('testdata/silva.jpg')
+    img = Image.open('../testdata/silva.jpg')
     # It can be shown with existing PIL
     # img.show()
     # ... or with matplotlib + qt

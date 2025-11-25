@@ -20,7 +20,7 @@ def main(argv):
     del argv
     # Get dataset
     bikes_numpy = np.loadtxt(
-        "testdata/hour-fixed.csv",
+        "../testdata/hour-fixed.csv",
         dtype=np.float32,
         delimiter=",",
         skiprows=1,
