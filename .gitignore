@@ -223,3 +223,6 @@ __marimo__/
 datasets
 
 img
+
+yolo/*.pt
+yolo/output

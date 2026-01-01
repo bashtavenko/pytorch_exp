@@ -8,3 +8,6 @@ imageio
 matplotlib
 numpy
 pyqt6
+
+ultralytics
+fiftyone
