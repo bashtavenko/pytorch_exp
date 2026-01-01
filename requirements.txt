@@ -11,3 +11,4 @@ pyqt6
 
 ultralytics
 fiftyone
+huggingface-hub
