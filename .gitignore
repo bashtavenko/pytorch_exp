@@ -226,3 +226,5 @@ img
 
 yolo/*.pt
 yolo/output
+
+vad/data
