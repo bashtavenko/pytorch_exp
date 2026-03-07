@@ -14,6 +14,7 @@ Usage:
 
 import matplotlib
 import numpy as np
+from pathlib import Path
 
 matplotlib.use("qtagg")
 import matplotlib.pyplot as plt
@@ -60,6 +61,9 @@ def standardise(X):
 
 
 def plot(X, y, clf, mu, sigma, output_path, show):
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
     pad = 1.2
     xx, yy = np.meshgrid(
         np.linspace(X[:, 0].min() - pad, X[:, 0].max() + pad, 400),
