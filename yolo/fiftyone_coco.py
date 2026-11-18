@@ -1,5 +1,6 @@
 """
-Download a small COCO subset with cars using FiftyOne and export images into testdata/.
+Download a small COCO subset with cars using FiftyOne and export images into
+testdata/.
 """
 
 from __future__ import annotations
@@ -14,10 +15,12 @@ import fiftyone.zoo as foz
 
 FLAGS = flags.FLAGS
 
-flags.DEFINE_string("split", "validation", "COCO split: 'train' or 'validation'")
+flags.DEFINE_string("split", "validation",
+                    "COCO split: 'train' or 'validation'")
 flags.DEFINE_integer("max_samples", 20, "How many samples to download")
 flags.DEFINE_string("out_dir", "../testdata/coco/", "Where to export images")
-flags.DEFINE_bool("also_include_truck_bus", True, "Include truck/bus along with car")
+flags.DEFINE_bool("also_include_truck_bus", True,
+                  "Include truck/bus along with car")
 
 
 def _find_detections_field(dataset: fo.Dataset) -> str:
@@ -34,7 +37,9 @@ def _find_detections_field(dataset: fo.Dataset) -> str:
     if "ground_truth" in schema:
         return "ground_truth"
 
-    raise ValueError(f"No Detections label field found. Available fields: {list(schema.keys())}")
+    raise ValueError(
+        f"No Detections label field found. Available fields: "
+        f"{list(schema.keys())}")
 
 
 def main(argv: list[str]) -> None:
@@ -47,7 +52,8 @@ def main(argv: list[str]) -> None:
     out_dir = os.path.normpath(FLAGS.out_dir)
     os.makedirs(out_dir, exist_ok=True)
 
-    logging.info("Loading COCO subset: split=%s classes=%s max_samples=%d", FLAGS.split, classes, FLAGS.max_samples)
+    logging.info("Loading COCO subset: split=%s classes=%s max_samples=%d",
+                 FLAGS.split, classes, FLAGS.max_samples)
 
     dataset = foz.load_zoo_dataset(
         "coco-2017",
@@ -56,7 +62,8 @@ def main(argv: list[str]) -> None:
         classes=classes,
         max_samples=FLAGS.max_samples,
         shuffle=True,
-        dataset_name=f"coco_{FLAGS.split}_{'_'.join(classes)}_{FLAGS.max_samples}",
+        dataset_name=f"coco_{FLAGS.split}_{'_'.join(classes)}_"
+                     f"{FLAGS.max_samples}",
     )
 
     label_field = _find_detections_field(dataset)
@@ -70,7 +77,8 @@ def main(argv: list[str]) -> None:
         classes=classes,
     )
 
-    logging.info("Done. Export dir contains images/ and labels.json (COCO format).")
+    logging.info(
+        "Done. Export dir contains images/ and labels.json (COCO format).")
 
 
 if __name__ == "__main__":

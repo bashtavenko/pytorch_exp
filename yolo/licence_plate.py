@@ -30,20 +30,26 @@ flags.DEFINE_string(
 flags.DEFINE_string(
     "filename",
     "license-plate-finetune-v1l.pt",
-    "Weights filename inside the HF repo (e.g. license-plate-finetune-v1n.pt/v1s.pt/v1m.pt/v1l.pt/v1x.pt).",
+    "Weights filename inside the HF repo (e.g. "
+    "license-plate-finetune-v1n.pt/v1s.pt/v1m.pt/v1l.pt/v1x.pt).",
 )
-flags.DEFINE_string("source", "../testdata/coco/000000142585.jpg", "Image/video path, directory, glob, or URL.")
+flags.DEFINE_string("source", "../testdata/coco/000000142585.jpg",
+                    "Image/video path, directory, glob, or URL.")
 flags.DEFINE_integer("imgsz", 640, "Inference image size.")
 flags.DEFINE_float("conf", 0.25, "Confidence threshold.")
-flags.DEFINE_string("device", "", "Device to run on: '', 'cpu', '0', '0,1', etc.")
-flags.DEFINE_string("project", "output", "Where to save runs (relative to the directory).")
-flags.DEFINE_string("name", "license_plate_detect", "Run name (subdir under --project).")
+flags.DEFINE_string("device", "",
+                    "Device to run on: '', 'cpu', '0', '0,1', etc.")
+flags.DEFINE_string("project", "output",
+                    "Where to save runs (relative to the directory).")
+flags.DEFINE_string("name", "license_plate_detect",
+                    "Run name (subdir under --project).")
 
 
 def main(argv: list[str]) -> None:
     del argv  # Unused.
 
-    logging.info("Downloading weights from Hugging Face: %s/%s", FLAGS.repo_id, FLAGS.filename)
+    logging.info("Downloading weights from Hugging Face: %s/%s", FLAGS.repo_id,
+                 FLAGS.filename)
     weights_path = hf_hub_download(
         repo_id=FLAGS.repo_id,
         filename=FLAGS.filename,
